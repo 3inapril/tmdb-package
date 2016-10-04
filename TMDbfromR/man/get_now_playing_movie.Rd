@@ -2,6 +2,7 @@
 % Please edit documentation in R/movie_functions.R
 \name{get_now_playing_movie}
 \alias{get_now_playing_movie}
+\title{Get the "now playing" movies}
 \usage{
 get_now_playing_movie(language='en-US', page=1)
 }

@@ -1,13 +1,5 @@
-search_query_string <- list(
-  company=c('query', 'page'),
-  collection=c('language','query', 'page'),  
-  keyword=c('query', 'page'), 
-  movie=c('language','query', 'page','include_adult','year','primary_release_year'), 
-  multi=c('language','query', 'page','include_adult'), 
-  person=c('language','query', 'page','include_adult'), 
-  tv=c('language','query', 'page','first_air_date_year')
-)
-
+#' Get url to pull data from using the search functionality
+#' 
 #' @description This function generate url mainly based on one or a series 
 #'     of keywords users specify to query from one of various target categories. 
 #'     To see the full list of legit search categories please print 
@@ -70,6 +62,8 @@ get_search_url <- function(query_list, search_cat='movie'){
 }
 
 
+#' Get multi-page of data using the search functionality
+#' 
 #' @description This function takes in a list of condition users specify and the 
 #'     target they are query against and return qualified target. 
 #'     Noted that the the page can take multiple values here instead of one. Due 

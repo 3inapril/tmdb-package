@@ -2,6 +2,7 @@
 % Please edit documentation in R/search_functions.R
 \name{get_search_url}
 \alias{get_search_url}
+\title{Get url to pull data from using the search functionality}
 \usage{
 get_search_url(query_list=list(), search_cat='movie')
 }

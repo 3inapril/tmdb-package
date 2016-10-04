@@ -2,6 +2,7 @@
 % Please edit documentation in R/discover_functions.R
 \name{discover_multi_page}
 \alias{discover_multi_page}
+\title{Given a query criterion, return multi-page of data using discover functionality}
 \usage{
 discover_multi_page(query_list=list(), search_cat='movie', verbose=T)
 }

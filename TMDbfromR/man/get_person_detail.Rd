@@ -2,6 +2,7 @@
 % Please edit documentation in R/people_functions.R
 \name{get_person_detail}
 \alias{get_person_detail}
+\title{Get detailed information of a certain person}
 \usage{
 get_person_detail(person_id, person_name=NULL, detail_cat=NULL, 
                         language='en-US', append_to_response=NULL)

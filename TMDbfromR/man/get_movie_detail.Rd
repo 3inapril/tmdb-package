@@ -2,6 +2,7 @@
 % Please edit documentation in R/movie_functions.R
 \name{get_movie_detail}
 \alias{get_movie_detail}
+\title{Get detail information of one specific movie}
 \usage{
 get_movie_detail(movie_id, movie_title=NULL, detail_cat=NULL, 
                         language='en-US', append_to_response=NULL)

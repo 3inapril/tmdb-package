@@ -2,6 +2,7 @@
 % Please edit documentation in R/search_functions.R
 \name{search_multi_page}
 \alias{search_multi_page}
+\title{Get multi-page of data using the search functionality}
 \usage{
 search_multi_page(query_list=list(), search_cat='movie', verbose=T)
 }

@@ -2,6 +2,7 @@
 % Please edit documentation in R/discover_functions.R
 \name{get_discover_url}
 \alias{get_discover_url}
+\title{Get url to pull discover data from}
 \usage{
 get_discover_url(query_list=list(), search_cat='movie')
 }

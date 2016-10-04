@@ -2,6 +2,7 @@
 % Please edit documentation in R/movie_functions.R
 \name{get_top_rated_movie}
 \alias{get_top_rated_movie}
+\title{Get the top rated movies on TMDb}
 \usage{
 get_top_rated_movie(language='en-US', page=1)
 }

@@ -1,9 +1,5 @@
-
-movie_detail_cat_list <- c('account_states', 'alternative_titles', 'changes', 
-                           'credits', 'images', 'keywords', 'release_dates',
-                           'videos', 'translations', 'recommendations', 'similar',
-                           'reviews', 'lists')
-
+#' Get detail information of one specific movie
+#' 
 #' @description This function takes in a movie_id and a detail category to return.
 #'     Noted that this function allow query by movie id or by title. If by title, 
 #'     two queries need to be sent to API, the first to get movie_id, the second 
@@ -50,6 +46,8 @@ get_movie_detail <- function(movie_id, movie_title=NULL, detail_cat=NULL, langua
   get_result_general(url)
 }
 
+#' Get the most newly created movies
+#' 
 #' @description This function fetch the most newly created movie. This is a 
 #'     live response and will continuously change.
 #' @usage get_latest_movie(language='en-US')
@@ -68,6 +66,8 @@ get_latest_movie <- function(language='en-US'){
   return(rst)
 }
 
+#' Get the "now playing" movies
+#' 
 #' @description This function fetch the "now playing" movies. This is a date based 
 #'     query looking at the primary_release_date of a movie.
 #' @usage get_now_playing_movie(language='en-US', page=1)
@@ -92,6 +92,8 @@ get_now_playing_movie <- function(language='en-US', page=1){
   }
 }
 
+#' Get a list of the current popular movies on TMDb
+#' 
 #' @description This function fetch a list of the current popular movies on TMDb. 
 #'     This list updates daily.
 #' @usage get_popular_movie(language='en-US', page=1)
@@ -117,6 +119,8 @@ get_popular_movie <- function(language='en-US', page=1){
 }
 
 
+#' Get the top rated movies on TMDb
+#' 
 #' @description This function returns the top rated movies on TMDb.
 #' @usage get_top_rated_movie(language='en-US', page=1)
 #' @param language Language of movie. By default is 'en-US'
@@ -141,6 +145,8 @@ get_top_rated_movie <- function(language='en-US', page=1){
 }
 
 
+#' Get the "upcoming" movies
+#' 
 #' @description This function fetch the "upcoming" movies. This is a date based 
 #'     query looking at the primary_release_date of a movie.
 #' @usage get_upcoming_movie(language='en-US', page=1)

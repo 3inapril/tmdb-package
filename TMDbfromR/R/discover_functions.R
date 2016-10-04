@@ -1,20 +1,5 @@
-# take in a list and concatenate the element names and values to build the query part for url
-
-discover_query_strings <- list(
-  movie=c('language', 'sort_by', 'certification_country', 
-          'certification', 'certification.lte', 'include_adult',
-          'include_video', 'page', 'primary_release_year',
-          'primary_release_date.gte', 'primary_release_date.lte', 
-          'release_date.gte', 'release_date.lte', 'vote_count.gte', 
-          'vote_count.lte', 'vote_average.gte', 'vote_average.lte', 
-          'with_cast','with_crew', 'with_companies', 'with_genres', 
-          'with_keywords', 'with_people', 'year'),
-  tv=c('language', 'sort_by', 'air_date.gte', 'air_date.lte', 
-       'first_air_date.gte', 'first_air_date.lte','first_air_date_year',
-       'page', 'timezone', 'vote_average.gte', 'vote_count.gte',
-       'with_genres','with_networks'))
-
-
+#' Get url to pull discover data from
+#' 
 #' @description This function generate url based on a list of condition users specify 
 #'    to query qualified movie or tv
 #' @usage get_discover_url(query_list=list(), search_cat='movie')
@@ -70,6 +55,8 @@ get_discover_url <- function(query_list=list(), search_cat='movie'){
 }
 
 
+#' Given a query criterion, return multi-page of data using discover functionality
+#' 
 #' @description This function takes in a list of condition users specify and the 
 #'     target they are query against(movie or tv) and return qualified target. 
 #'     Noted that the the page can take multiple values here instead of one. Due 

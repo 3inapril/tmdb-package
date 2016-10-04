@@ -2,6 +2,7 @@
 % Please edit documentation in R/movie_functions.R
 \name{get_upcoming_movie}
 \alias{get_upcoming_movie}
+\title{Get the "upcoming" movies}
 \usage{
 get_upcoming_movie(language='en-US', page=1)
 }

@@ -2,6 +2,7 @@
 % Please edit documentation in R/movie_functions.R
 \name{get_latest_movie}
 \alias{get_latest_movie}
+\title{Get the most newly created movies}
 \usage{
 get_latest_movie(language='en-US')
 }

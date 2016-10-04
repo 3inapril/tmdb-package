@@ -2,6 +2,7 @@
 % Please edit documentation in R/people_functions.R
 \name{get_latest_person}
 \alias{get_latest_person}
+\title{Get the most newly created person}
 \usage{
 get_latest_person(language='en-US')
 }
@@ -13,7 +14,7 @@ An object of class \code{tmdb_api} that consists quried data in a
     data frame or a list and a metadata list
 }
 \description{
-This function he most newly created person. This is a live 
+This function returns the most newly created person. This is a live 
     response and will continuously change.
 }
 \examples{

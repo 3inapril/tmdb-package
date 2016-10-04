@@ -2,6 +2,7 @@
 % Please edit documentation in R/movie_functions.R
 \name{get_popular_movie}
 \alias{get_popular_movie}
+\title{Get a list of the current popular movies on TMDb}
 \usage{
 get_popular_movie(language='en-US', page=1)
 }

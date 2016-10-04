@@ -1,6 +1,5 @@
-
-person_detail_cat_list <- c('movie_credits', 'tv_credits', 'combined_credits', 'external_ids', 'images', 'tagged_images', 'changes')
-
+#' Get detailed information of a certain person
+#' 
 #' @description This function takes in a person_id and a detail category to return.
 #'     Noted that this function allow query by person_id or by person name. If by 
 #'     name, two queries need to be sent to API, the first to get person_id, the 
@@ -49,7 +48,9 @@ get_person_detail <- function(person_id, person_name=NULL, detail_cat=NULL, lang
   
 }
 
-#' @description This function he most newly created person. This is a live 
+#' Get the most newly created person
+#' 
+#' @description This function returns the most newly created person. This is a live 
 #'     response and will continuously change.
 #' @usage get_latest_person(language='en-US')
 #' @param language Language of movie. By default is 'en-US'
@@ -67,6 +68,8 @@ get_latest_person <- function(language='en-US'){
   return(rst)
 }
 
+#' Get the list of popular people on TMDb
+#' 
 #' @description This function fetch the list of popular people on TMDb. This 
 #'     list updates daily.
 #' @usage get_popular_person(language='en-US', page=1)

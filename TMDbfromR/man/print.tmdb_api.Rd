@@ -2,6 +2,7 @@
 % Please edit documentation in R/common_functions.R
 \name{print.tmdb_api}
 \alias{print.tmdb_api}
+\title{Print object tmdb_api}
 \usage{
 print.tmdb_api(rst) or rst
 }

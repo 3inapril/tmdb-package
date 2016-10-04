@@ -28,6 +28,4 @@ result <- get_result(url)
 }
 
 }
-\keyword{API}
-\keyword{TMDb}
 

@@ -2,6 +2,7 @@
 % Please edit documentation in R/people_functions.R
 \name{get_popular_person}
 \alias{get_popular_person}
+\title{Get the list of popular people on TMDb}
 \usage{
 get_popular_person(language='en-US', page=1)
 }

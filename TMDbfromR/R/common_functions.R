@@ -1,4 +1,4 @@
-#' @title store API key in global environment
+#' store API key in global environment
 #'
 #' @description This is a function that store API key for the sake of functions 
 #'     in the pakage
@@ -10,7 +10,8 @@ auth_key <- function(api_key){
   assign("api_key", api_key, envir = globalenv())
   utils::globalVariables("api_key")
 }
-#' @title Query data using a URL
+
+#'  Query data using a URL
 #'
 #' @description This is a function that takes an assembled URL and query data from it, especially for the query where users specify which page to return. This function will generate message of total page so the user can modify their query accordingly.
 #' @usage get_result(url)
@@ -22,8 +23,6 @@ auth_key <- function(api_key){
 #'    element called response_detail is a \code{list} that contains metadata of the
 #'    query such as headers, url and status code. Raw data in json format is 
 #'    also available in response_detail.
-#' @keywords TMDb API 
-#' @export TMDbfromR
 #' @import jsonlite httr DBI
 #'
 #' @examples
@@ -76,6 +75,8 @@ get_result <- function(url){
     class = "tmdb_api")
 }
 #'
+#' Get result from query that desn't involve pages
+#'
 #' @description This is a function that takes an assembled URL and query data from it.
 #'    Comparing with get_result which maily used for the url with page specified, 
 #'    this is a more general version. Instead of messaging the total page, this function 
@@ -89,9 +90,6 @@ get_result <- function(url){
 #'     in\code{list} form.  The second element called response_detail is a \code{list}
 #'     that contains metadata of the query such as headers, url and status code. Raw 
 #'     data in json format is also available in response_detail.
-#' @keywords TMDb api
-#' @export TMDbfromR
-#' @import jsonlite httr DBI
 #'
 #' @examples
 #' \dontrun{
@@ -138,6 +136,10 @@ get_result_general <- function(url){
     ),
     class = "tmdb_api")
 }
+#'
+#' 
+#' Print object tmdb_api
+#' 
 #' @description This function controls the output when users print the response object
 #' @usage print.tmdb_api(rst) or rst
 #' @param rst The returned object of function get_result() or get_result_general().

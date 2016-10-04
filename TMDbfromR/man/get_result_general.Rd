@@ -2,6 +2,7 @@
 % Please edit documentation in R/common_functions.R
 \name{get_result_general}
 \alias{get_result_general}
+\title{Get result from query that desn't involve pages}
 \usage{
 get_result_general(url)
 }
@@ -30,6 +31,4 @@ result <- get_result_general(url)
 }
 
 }
-\keyword{TMDb}
-\keyword{api}
 
