@@ -8,7 +8,8 @@
 #' @export
 auth_key <- function(api_key){
   #unlockBinding("api_key", env=globalenv())
-  assign("api_key", api_key, envir = TMDb_pkg)
+  .TMDb_Env <- new.env()
+  assign("api_key", api_key, envir = .TMDb_Env)
   #utils::globalVariables(names="api_key", package="TMDbfromR", add=FALSE)
 }
 
