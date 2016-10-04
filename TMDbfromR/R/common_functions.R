@@ -8,7 +8,7 @@
 #' @export
 auth_key <- function(api_key){
   assign("api_key", api_key, envir = globalenv())
-  utils::globalVariables("api_key")
+  utils::globalVariables("api_key", package="TMDbfromR", add=FALSE)
 }
 
 #'  Query data using a URL
