@@ -7,8 +7,9 @@
 #' @return An character object stored in the global environment
 #' @export
 auth_key <- function(api_key){
-  assign("api_key", api_key, envir = globalenv())
-  utils::globalVariables(names="api_key", package="TMDbfromR", add=FALSE)
+  #unlockBinding("api_key", env=globalenv())
+  assign("api_key", api_key, envir = TMDb_pkg)
+  #utils::globalVariables(names="api_key", package="TMDbfromR", add=FALSE)
 }
 
 #'  Query data using a URL
@@ -34,6 +35,7 @@ auth_key <- function(api_key){
 #' @export
 get_result <- function(url){
   
+  api_key <- TMDb_pkg$api_key
   resp=GET(url)
   
   if(length(content(resp)$total_pages) == 0) {
