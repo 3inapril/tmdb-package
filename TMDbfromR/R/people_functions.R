@@ -1,6 +1,30 @@
+
 person_detail_cat_list <- c('movie_credits', 'tv_credits', 'combined_credits', 'external_ids', 'images', 'tagged_images', 'changes')
 
-get_person_detail <- function(person_id, person_name=NULL, detail_cat=NULL, language='en-US', append_to_response=NULL, api_key){
+#' @description This function takes in a person_id and a detail category to return.
+#'     Noted that this function allow query by person_id or by person name. If by 
+#'     name, two queries need to be sent to API, the first to get person_id, the 
+#'     second to request data by person_id
+#' @usage get_person_detail(person_id, person_name=NULL, detail_cat=NULL, 
+#'                         language='en-US', append_to_response=NULL)
+#' @param person_id The person_id of the person of interest
+#' @param person_name If no person_id is provided, use person_name to match and 
+#'     identify the person
+#' @param detail_cat The variable that clarify the query category. For full list
+#'     of legit values, print person_detail_cat_list
+#' @param language language of movie. By default is 'en-US'
+#' @param append_to_response A series of strings seperated by comma that clearify
+#'     objects to append that are related to this quried person. Possible values 
+#'     are imgages and videos
+#' @return An object of class \code{tmdb_api} that consists quried data in a 
+#'     data frame or a list and a metadata list 
+#'
+#' @examples
+#' \dontrun{
+#' result_data <- get_person_detail(person_id=287, detail_cat='movie_credits')
+#' }
+#' @export
+get_person_detail <- function(person_id, person_name=NULL, detail_cat=NULL, language='en-US', append_to_response=NULL){
   
   if(missing(person_id) & missing(person_name)){
     stop('Need at least one of person_id and person_name')
@@ -25,16 +49,37 @@ get_person_detail <- function(person_id, person_name=NULL, detail_cat=NULL, lang
   
 }
 
-
-get_latest_person <- function(language='en-US',api_key){
+#' @description This function he most newly created person. This is a live 
+#'     response and will continuously change.
+#' @usage get_latest_person(language='en-US')
+#' @param language Language of movie. By default is 'en-US'
+#' @return An object of class \code{tmdb_api} that consists quried data in a 
+#'     data frame or a list and a metadata list 
+#' @examples
+#' \dontrun{
+#' result_data <- get_latest_person(language='en-US')
+#' }
+#' @export
+get_latest_person <- function(language='en-US'){
   url <- URLencode(paste0('https://api.themoviedb.org/3/person/latest?api_key=',
                           api_key,'&language=', language))
   rst <- get_result_general(url)
   return(rst)
 }
 
-
-get_popular_person <- function(language='en-US', page=1,api_key){
+#' @description This function fetch the list of popular people on TMDb. This 
+#'     list updates daily.
+#' @usage get_popular_person(language='en-US', page=1)
+#' @param language Language of movie. By default is 'en-US'
+#' @param page Which page to return
+#' @return An object of class \code{tmdb_api} that consists quried data in a 
+#'     data frame or a list and a metadata list 
+#' @examples
+#' \dontrun{
+#' result_data <- get_popular_person(language='en-US', page=2)
+#' }
+#' @export
+get_popular_person <- function(language='en-US', page=1){
   if(length(page) > 1 | !is.numeric(page)){
     stop('Please query only one page using an integer')
   } else {

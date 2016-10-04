@@ -1,0 +1,37 @@
+---
+title: "TMDbfromR Vignettes"
+author: "April Liu"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This package provide part of the functionalities of TMDb API through R. For now, the 
+package supports only one-direction data pulling from API, without the POST action.
+
+Noted, to use the package, users have to first create a TMDb account [through this link](https://www.themoviedb.org/account/signup) in order to obtain an api_key. 
+
+Here a brief introduction to the functions provided in the pakage is given. For more details and not yet available functionality=ies, please reference the [TMDb API documentation](https://developers.themoviedb.org/3/getting-started).
+
+The functions can be summarised into the following few categories.
+
+## Discover
+
+Discovers functions works as a filter. Users can specify values of a series of given attributes in the query and be returned with corresponding objects.
+
+API provide this functionality to discover **movies** and **tv**. The retrurn value of get_discover_url() can be fed to functions get_result() or get_result_general() to fetch query results. Since the API only allow one page of data per request, discover_multi_page() is provided to query up to 40 pages in 10 seconds.
+
+## Search
+
+Instead of various variables to specify values in Discover category, Search category is more like a search engine in library. One of the core variable that users are going to assign value to is *query*, which takes character strings. The API will take the strings and match it with objects. Another key variable is *search_cat*, which tells api what object the users is looking for. It can be movies, persons, collections  and so on. Functions of search functionality are get_search_url() and search_multi_page()
+
+## Movie
+There are two main parts in the movie categories. The first part takes movie_id from users and return queried detail infomations of the movie. The function get_movie_detail() in this package also takes movie titles since in most of the cases users dont have movie_id on their mind.
+The second part is live and the response changes continuously. It does not require movie_id and will return the current popular movie, current top rated movie and things of that nature.
+
+## People
+Similar to Movie category. There are two part in the people category too. Please read the description in movie category for reference.
+

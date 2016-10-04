@@ -8,6 +8,23 @@ search_query_string <- list(
   tv=c('language','query', 'page','first_air_date_year')
 )
 
+#' @description This function generate url mainly based on one or a series 
+#'     of keywords users specify to query from one of various target categories. 
+#'     To see the full list of legit search categories please print 
+#'     search_query_string to see
+#' @usage get_search_url(query_list=list(), search_cat='movie')
+#' @param query_list The list of criterion that narrow the range of returned results. 
+#'     To see the full list of legit search categories please print 
+#'     search_query_string 
+#' @param search_cat The variable that clarify search category
+#' @return An url in format of character. 
+#'
+#' @examples
+#' \dontrun{
+#' sample_query_list <- list(language='en-US', query='kill bill')
+#' target_url <- get_search_url(sample_query_list, 'movie')
+#' }
+#' @export
 get_search_url <- function(query_list, search_cat='movie'){
   
   method <- 'search/'
@@ -39,7 +56,7 @@ get_search_url <- function(query_list, search_cat='movie'){
     
     query_part <- paste0(query_seg2, collapse = '&')
     
-    rst <- URLencode(paste0(domain, method, search_cat,
+    rst <- URLencode(paste0('https://api.themoviedb.org/3/', method, search_cat,
                             '?api_key=', api_key, '&', query_part))
     return(rst)
     
@@ -53,9 +70,26 @@ get_search_url <- function(query_list, search_cat='movie'){
 }
 
 
-
-
-
+#' @description This function takes in a list of condition users specify and the 
+#'     target they are query against and return qualified target. 
+#'     Noted that the the page can take multiple values here instead of one. Due 
+#'     to the rate limit of API, page can be no longer than 40 integers.
+#' @usage search_multi_page(query_list=list(), search_cat='movie', verbose=T)
+#' @param query_list The list of criterion that narrow the range of returned results. 
+#'     For different search categories there are respective set of legit variables 
+#'     to specify. To check the list, print object search_query_string.
+#' @param search_cat The variable that clarify the search category
+#' @param verbose A logic value that control whether the page pulled info should 
+#'     be sent as a message
+#' @return An object of class \code{tmdb_api} that consists quried data in a 
+#'     data frame or a list and a metadata list 
+#'
+#' @examples
+#' \dontrun{
+#' sample_query_list <- list(language='en-US', query='blue', page=c(2,3))
+#' result_data <- search_multi_page(sample_query_list, 'movie')
+#' }
+#' @export
 search_multi_page <- function(search_cat='movie', query_list, verbose=T){
   if(!'page' %in% names(query_list)){
     query_list$page <- 1
