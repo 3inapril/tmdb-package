@@ -34,7 +34,7 @@ auth_key <- function(api_key){
 #' @export
 get_result <- function(url){
   
-  resp=GET(url,ua)
+  resp=GET(url)
   
   if(length(content(resp)$total_pages) == 0) {
     
@@ -101,7 +101,7 @@ get_result <- function(url){
 get_result_general <- function(url){
   
   force(url)
-  resp <- GET(url,ua)
+  resp <- GET(url)
   
   raw_data <- jsonlite::fromJSON(content(resp, 'text'), simplifyVector = FALSE, simplifyDataFrame=T)
   
