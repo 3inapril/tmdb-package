@@ -36,7 +36,6 @@ auth_key <- function(api_key){
 #' @export
 get_result <- function(url){
   
-  api_key <- TMDb_pkg$api_key
   resp=GET(url)
   
   if(length(content(resp)$total_pages) == 0) {
