@@ -17,7 +17,7 @@
 #' @export
 get_discover_url <- function(query_list=list(), search_cat='movie'){
   
-  api_key <- .TMDb_Env$api_key
+  api_key <- TMDb_Env$api_key
   method <- 'discover/'
   url <- tryCatch({
     

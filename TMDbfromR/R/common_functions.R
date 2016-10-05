@@ -1,3 +1,6 @@
+#' Create an environment to hold api_key
+TMDb_Env <- new.env(parent = emptyenv())
+
 #' store API key in global environment
 #'
 #' @description This is a function that store API key for the sake of functions 
@@ -7,9 +10,7 @@
 #' @return An character object stored in the global environment
 #' @export
 auth_key <- function(api_key){
-  #unlockBinding("api_key", env=globalenv())
-  .TMDb_Env <- new.env()
-  assign("api_key", api_key, envir = .TMDb_Env)
+  assign("api_key", api_key, envir = TMDb_Env)
   #utils::globalVariables(names="api_key", package="TMDbfromR", add=FALSE)
 }
 
