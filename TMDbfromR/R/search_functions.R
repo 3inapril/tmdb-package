@@ -19,8 +19,8 @@
 #' @export
 get_search_url <- function(query_list, search_cat='movie'){
   
-  tryCatch({api_key <- TMDb_Env$api_key
-  }, error = function(err) {stop('Need api_key authentication information. \n Please use function auth_key() first.')})
+  api_key <- TMDb_Env$api_key
+  if (is.null(api_key)) stop('Need api_key authentication information. \n Please use function auth_key() first.')
   
   method <- 'search/'
   
@@ -89,8 +89,8 @@ get_search_url <- function(query_list, search_cat='movie'){
 #' @export
 search_multi_page <- function(search_cat='movie', query_list, verbose=T){
   
-  tryCatch({api_key <- TMDb_Env$api_key
-  }, error = function(err) {stop('Need api_key authentication information. \n Please use function auth_key() first.')})
+  api_key <- TMDb_Env$api_key
+  if (is.null(api_key)) stop('Need api_key authentication information. \n Please use function auth_key() first.')
   
   if(!'page' %in% names(query_list)){
     query_list$page <- 1
