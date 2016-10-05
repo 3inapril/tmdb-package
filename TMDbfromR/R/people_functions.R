@@ -25,6 +25,9 @@
 #' @export
 get_person_detail <- function(person_id, person_name=NULL, detail_cat=NULL, language='en-US', append_to_response=NULL){
   
+  tryCatch({api_key <- TMDb_Env$api_key
+  }, error = function(err) {stop('Need api_key authentication information. \n Please use function auth_key() first.')})
+  
   if(missing(person_id) & missing(person_name)){
     stop('Need at least one of person_id and person_name')
   } else if(!missing(person_id)){
@@ -62,6 +65,10 @@ get_person_detail <- function(person_id, person_name=NULL, detail_cat=NULL, lang
 #' }
 #' @export
 get_latest_person <- function(language='en-US'){
+  
+  tryCatch({api_key <- TMDb_Env$api_key
+  }, error = function(err) {stop('Need api_key authentication information. \n Please use function auth_key() first.')})
+  
   url <- URLencode(paste0('https://api.themoviedb.org/3/person/latest?api_key=',
                           api_key,'&language=', language))
   rst <- get_result_general(url)
@@ -83,6 +90,10 @@ get_latest_person <- function(language='en-US'){
 #' }
 #' @export
 get_popular_person <- function(language='en-US', page=1){
+  
+  tryCatch({api_key <- TMDb_Env$api_key
+  }, error = function(err) {stop('Need api_key authentication information. \n Please use function auth_key() first.')})
+  
   if(length(page) > 1 | !is.numeric(page)){
     stop('Please query only one page using an integer')
   } else {

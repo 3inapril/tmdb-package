@@ -25,6 +25,9 @@
 #' @export
 get_movie_detail <- function(movie_id, movie_title=NULL, detail_cat=NULL, language='en-US', append_to_response=NULL){
   
+  tryCatch({api_key <- TMDb_Env$api_key
+  }, error = function(err) {stop('Need api_key authentication information. \n Please use function auth_key() first.')})
+  
   if(missing(movie_id) & missing(movie_title)){
     stop('Need at least one of movie_id and movie_title')
   } else if(!missing(movie_id)){
@@ -60,6 +63,10 @@ get_movie_detail <- function(movie_id, movie_title=NULL, detail_cat=NULL, langua
 #' }
 #' @export
 get_latest_movie <- function(language='en-US'){
+  
+  tryCatch({api_key <- TMDb_Env$api_key
+  }, error = function(err) {stop('Need api_key authentication information. \n Please use function auth_key() first.')})
+  
   url <- URLencode(paste0('https://api.themoviedb.org/3/movie/latest?api_key=',
                           api_key,'&language=', language))
   rst <- get_result_general(url)
@@ -81,6 +88,10 @@ get_latest_movie <- function(language='en-US'){
 #' }
 #' @export
 get_now_playing_movie <- function(language='en-US', page=1){
+  
+  tryCatch({api_key <- TMDb_Env$api_key
+  }, error = function(err) {stop('Need api_key authentication information. \n Please use function auth_key() first.')})
+  
   if(length(page) > 1 | !is.numeric(page)){
     stop('Please query only one page using an integer')
   } else {
@@ -107,6 +118,10 @@ get_now_playing_movie <- function(language='en-US', page=1){
 #' }
 #' @export
 get_popular_movie <- function(language='en-US', page=1){
+  
+  tryCatch({api_key <- TMDb_Env$api_key
+  }, error = function(err) {stop('Need api_key authentication information. \n Please use function auth_key() first.')})
+  
   if(length(page) > 1 | !is.numeric(page)){
     stop('Please query only one page using an integer')
   } else {
@@ -133,6 +148,10 @@ get_popular_movie <- function(language='en-US', page=1){
 #' }
 #' @export
 get_top_rated_movie <- function(language='en-US', page=1){
+  
+  tryCatch({api_key <- TMDb_Env$api_key
+  }, error = function(err) {stop('Need api_key authentication information. \n Please use function auth_key() first.')})
+  
   if(length(page) > 1 | !is.numeric(page)){
     stop('Please query only one page using an integer')
   } else {
@@ -160,6 +179,10 @@ get_top_rated_movie <- function(language='en-US', page=1){
 #' }
 #' @export
 get_upcoming_movie <- function(language='en-US', page=1){
+  
+  tryCatch({api_key <- TMDb_Env$api_key
+  }, error = function(err) {stop('Need api_key authentication information. \n Please use function auth_key() first.')})
+  
   if(length(page) > 1 | !is.numeric(page)){
     stop('Please query only one page using an integer')
   } else {
